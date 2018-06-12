@@ -7,11 +7,12 @@
 		start = false,
 		startButton = document.getElementById("start-button"),
 		wrapper = document.getElementsByClassName('wrapper'),
+		score = document.getElementById('score'),
 		body = document.body,
 		bulletSound ;
 		
 	document.getElementById("start-info").innerHTML = `You have ${bulletCount} bullets`;
-	
+	score.innerHTML = "Killed ducks  " + killedDucks;
 	startButton.onclick = function(){
 		document.getElementById("start").remove();
 			
@@ -26,7 +27,7 @@
 		},4000);
 	}
 	function clickShot(e){
-		if(bulletCount > 0){
+		if(bulletCount > 0){//0844 sj053688 098655663
 			shotDuck();
 			e = e || fixEvent.call(this, window.event);
 			e = e.target || e.srcElement;
@@ -35,16 +36,18 @@
 					e.className = "duck duck-kiiled";
 					e.style.backgroundImage = "url(./images/duck-killed-right.jpg)";
 					killedDucks++;
+					score.innerHTML = "Killed ducks  " + killedDucks;
 				}
 				if(e.className.indexOf("duck-left") > -1){
 					e.className = "duck duck-kiiled";
 					e.style.backgroundImage = "url(./images/duck-killed-left.jpg)";
 					killedDucks++;
+					score.innerHTML = "Killed ducks  " + killedDucks;
 				}
 			}
 		}
 		else{
-			alert("Your bullets was over\nYou kiiled " + killedDucks + " duckes");
+			alert("Your bullets was over\nYou killed " + killedDucks + " duckes");
 		}
 	}
 	function createDackLeft(){
