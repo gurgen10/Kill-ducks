@@ -1,0 +1,100 @@
+*{
+	margin:0;
+	padding:0;
+}
+.wrapper{
+	width:100%;
+	height:100%;
+}
+.duck-left{
+	background-size:100px;
+	background-repeat: no-repeat;
+	width:100px;
+	height:100px;
+	animation-name:duck-fly-to-right;
+	animation-duration:0.5s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+}
+
+@keyframes duck-fly-to-right{
+	from{background-image:url(../images/duck-wind-up.jpg);}
+	to{background-image:url(../images/duck-wind-down.jpg);}
+}
+.duck-right{
+	background-size:100px;
+	background-repeat: no-repeat;
+	width:100px;
+	height:100px;
+	animation-name:duck-fly-to-left;
+	animation-duration:0.5s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;	
+}
+.duck-kiiled{
+	background-size:50px;
+	background-repeat: no-repeat;
+	width:50px;
+	height:100px;
+}
+
+@keyframes duck-fly-to-left{
+	from{background-image:url(../images/duck-wind-up-right.jpg);}
+	to{background-image:url(../images/duck-wind-down-right.jpg);}
+}
+
+.border-left{
+	position:absolute;
+	left:0;
+	z-index:4;
+	width:200px;
+	height:1000px;
+	background-image:url(../images/forest.jpg);
+}
+.middle{
+	position:absolute;
+	z-index:-1;
+	left:200px;
+	width:80%;
+	height:1000px;
+	
+}
+.border-right{
+	position:absolute;
+	right:0;
+	z-index:4;
+	width:200px;
+	height:1000px;
+	background-image:url(../images/forest.jpg);
+	background-size:right;
+
+}
+.border-bottom{
+	position:absolute;
+	z-index:5;
+	top:95%;
+	width:100%;
+	height:5%;
+	background-image:url(../images/ground.jpg);
+	background-size:right;
+
+}
+
+#start{
+	display:inline-block;
+	margin-top:30%;
+	margin-left:40%;
+	text-align:center;
+	height:100%;
+}
+#start-button{
+	font-size:150%;
+	background-color:gold;
+}
+#start-info{
+	display:block;
+	
+	color:pink;
+	font-weight:bold;
+	font-size:200%;
+}
