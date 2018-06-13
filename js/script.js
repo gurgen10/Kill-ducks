@@ -9,6 +9,7 @@
 		wrapper = document.getElementsByClassName('wrapper'),
 		score = document.getElementById('score'),
 		body = document.body,
+		groundPosition = document.documentElement.clientHeight - 100,
 		bulletSound ;
 		
 	document.getElementById("start-info").innerHTML = `You have ${bulletCount} bullets`;
@@ -53,12 +54,12 @@
 	function createDackLeft(){
 		let duckDiv = createDack("left"),
 			moveIter = null;
-	
+			
 		 moveIter = setInterval(function(){
 			if(duckDiv.getAttribute('class').indexOf('duck-kiiled') > -1){
 				 duckDiv.style.top = (duckDiv.offsetTop + duckDiv.offsetWidth + 2) + "px";
 		
-				if(duckDiv.style.top > document.body.offsetHeight){
+				if(duckDiv.offsetTop > groundPosition){
 					clearInterval(moveIter);
 					duckDiv.remove();
 				}
@@ -83,9 +84,9 @@
 
 		 moveIter = setInterval(function(){
 			 if(duckDiv.getAttribute('class').indexOf('duck-kiiled') > -1){
-				 duckDiv.style.top = (duckDiv.offsetTop + duckDiv.offsetWidth + 2) + "px";
-		
-				if(duckDiv.style.top > document.body.offsetHeight){
+				duckDiv.style.top = (duckDiv.offsetTop + duckDiv.offsetWidth + 2) + "px";
+				
+				if(duckDiv.offsetTop > groundPosition){
 					clearInterval(moveIter);
 					duckDiv.remove();
 				}
@@ -110,7 +111,7 @@
 		duckDiv.setAttribute('class', "duck");
 		duckDiv.style.position = 'absolute';
 		duckDiv.style.margin = '5px';
-		duckDiv.style.top = (Math.floor(Math.random() * document.documentElement.clientHeight - 100) + 100) + "px";
+		duckDiv.style.top = (Math.floor(Math.random() * document.documentElement.clientHeight - 100)) + "px";
 		if(side){
 			if(side.toLowerCase() === "right"){
 				duckDiv.style.right = 0 + "px";
